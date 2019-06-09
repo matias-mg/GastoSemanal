@@ -6,32 +6,41 @@ import Formulario from './Formulario';
 class App extends Component {
   state = {
     presupuesto: '',
-    restante : '',
+    restante: '',
     gastos: {}
   }
 
   agregarGasto = gasto => {
     //Tomar una copia del state actual
-    const gastos = {...this.state.gastos};
-    console.log("Se agregó gasto " + gasto);
-    console.log(gastos);
+    const gastos = { ...this.state.gastos };
+    
+    //Asignarle un array de Gastos con ID tipo Date que almacene el gasto enviado 
+    gastos[`gasto${Date.now()}`] = gasto;
+
+    //Ponerlo el gasto en State
+    this.setState({
+      gastos: gastos
+    })
   }
+
   render() {
     return (
       <div className="App container">
         <Header
           titulo="Gasto semanal"
         />
+
         <div className="contenido-principal contenido">
           <div className="row">
             <div className="one-half column">
-              <Formulario 
+              <Formulario
                 agregarGasto={this.agregarGasto}
               />
             </div>
+
             <div className="one-half column">
               2
-                    </div>
+            </div>
           </div>
         </div>
       </div>
