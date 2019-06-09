@@ -6,8 +6,12 @@ class Listado extends Component {
         return (
             <div className="gastos-realizados">
                 <h2>Listado</h2>
-                <Gasto />
-                {console.log(this.props.gastos)}
+                {Object.keys(this.props.gastos).map(key => (
+                    <Gasto 
+                        key={key}
+                        gastos={this.props.gastos}
+                    />
+                ))}
             </div>            
         );
     }
