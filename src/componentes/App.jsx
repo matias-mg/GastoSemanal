@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/App.css';
+import {obtenerPresupuesto} from '../helper';
 import Header from './Header';
 import Formulario from './Formulario';
 import Listado from './Listado';
@@ -10,6 +11,15 @@ class App extends Component {
     restante: '',
     gastos: {}
   }
+
+  //Obtener el resultado ingresado para luego hacerle un setState al presupuesto
+  componentDidMount(){    
+    const presupuestoGastos = obtenerPresupuesto();
+
+    this.setState({
+      presupuesto: presupuestoGastos
+    })
+  }  
 
   agregarGasto = gasto => {
     //Tomar una copia del state actual
