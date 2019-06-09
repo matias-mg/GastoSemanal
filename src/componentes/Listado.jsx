@@ -9,7 +9,7 @@ class Listado extends Component {
                 {Object.keys(this.props.gastos).map(key => (
                     <Gasto 
                         key={key}
-                        gastos={this.props.gastos}
+                        gasto={this.props.gastos[key]}
                     />
                 ))}
             </div>            

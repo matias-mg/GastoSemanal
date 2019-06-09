@@ -15,6 +15,8 @@ class Formulario extends Component {
 
         //Enviar objeto gasto como prop
         this.props.agregarGasto(gasto);
+
+        e.currentTarget.reset();
     }
 
     render() {
